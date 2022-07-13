@@ -6,50 +6,21 @@ const difficultyDom = document.getElementById('difficulty');
 buttonDom.addEventListener('click', 
     function () {
         if (difficultyDom.value == 'easy') { //? Condizione per il cambio della difficoltà
-
             for (let i = 1; i <= 100; i++) {
                 let square = addSquare();
-                square.append(i); //* stampa il numero corrispondente alla posizione della cella
-            
-                square.addEventListener('click', //* al click dell'elemento creato--->
-                    function () {
-                        this.classList.add('clicked'); //*--> aggiunge la classe per cambiare colore
-                        console.log(i); //*---> stampa in console il numero corrispondente alla cella
-                    }
-                );
-                
-                gridDom.append(square); //* stampo la cella nel mio container all'interno del DOM
+                addClicked(square, i, gridDom);  
             }
-        } else if (difficultyDom.value == 'normal') {  //? Condizione per il cambio della difficoltà
+        } else if (difficultyDom.value == 'normal') {
             for (let i = 1; i <= 81; i++) {
                 let square = addNormalDiffSquare();
-                square.append(i); //* stampa il numero corrispondente alla posizione della cella
-            
-                square.addEventListener('click', //* al click dell'elemento creato--->
-                    function () {
-                        this.classList.add('clicked');
-                        console.log(i); //* stampa in console il numero corrispondente alla cella
-                    }
-                );
-                
-                gridDom.append(square); //* stampo la cella nel mio container all'interno del DOM
+                addClicked(square, i, gridDom);
             }
-        } else if (difficultyDom.value == 'hard') { //? Condizione per il cambio della difficoltà
+        } else if (difficultyDom.value == 'hard') { 
             for (let i = 1; i <= 49; i++) {
                 let square = addHardDiffSquare();
-                square.append(i); //* stampa il numero corrispondente alla posizione della cella
-            
-                square.addEventListener('click', //* al click dell'elemento creato--->
-                    function () {
-                        this.classList.add('clicked');
-                        console.log(i); //* stampa in console il numero corrispondente alla cella
-                    }
-                );
-                
-                gridDom.append(square); //* stampo la cella nel mio container all'interno del DOM
+                addClicked(square, i, gridDom);
             }
-        }
-        
+        }   
     } 
 );
 
@@ -58,6 +29,19 @@ buttonDom.addEventListener('click',
 
 
 // Funzioni invocate nel programma--->
+
+function addClicked(element, counter, dom) {
+    element.append(counter); //* stampa il numero corrispondente alla posizione della cella
+    element.addEventListener('click', //* al click dell'elemento creato--->
+        function () {
+            this.classList.add('clicked'); //*--> aggiunge la classe per cambiare colore
+            console.log(counter); //*---> stampa in console il numero corrispondente alla cella
+        }
+    );
+    
+    dom.append(element); //* stampo la cella nel mio container all'interno del DOM
+}
+
 function addSquare() { // funzione per la creazione dinamica delle celle
     const element = document.createElement('div');
     element.classList.add('square');
