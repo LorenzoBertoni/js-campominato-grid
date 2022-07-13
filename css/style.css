@@ -18,7 +18,7 @@ header{
     padding: 0 1rem;
 }
 
-.wrapper {
+.wrapper-left {
     display: flex;
     align-items: center;
 }
@@ -43,6 +43,26 @@ header{
 .square {
     width: calc(100% / 10);
     height: calc(100% / 10);
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.normal-difficulty-square {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hard-difficulty-square {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
     border: 1px solid #000;
     display: flex;
     justify-content: center;

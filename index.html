@@ -9,12 +9,20 @@
     </head>
     <body>
         <header>
-            <div class="wrapper">
+            <div class="wrapper-left">
                 <a href="#">Logo</a>
                 <h1 class="title">Campo Minato</h1>
             </div>
-            
-            <button id="play">Gioca</button>
+
+            <div class="wrapper-right">
+                <label for="difficulty">Seleziona la difficoltà</label>
+                <select name="difficulty" id="difficulty">
+                    <option value="easy">Facile</option>
+                    <option value="normal">Normale</option>
+                    <option value="hard">Difficile</option>
+                </select>
+                <button id="play">Gioca</button>
+            </div>
         </header>
 
         <div id="grid">
